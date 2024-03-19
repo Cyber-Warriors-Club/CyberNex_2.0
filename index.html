@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./cwc.png?" type="image/x-icon">
+</head>
+
+<body>
+    </div>
+    <div class="container">
+        <div class="header">
+            <a href="#" class="logo"></a>
+            <nav class="navbar">
+                <a href="#Rules">Rules</a>
+                <a href="./Problem_Statement.pdf" download="Problem_Statement.pdf">Problem_Statements</a>
+            </nav>
+        </div>
+        <div class="container">
+            <img src="cwc.png" alt="" height="300px">
+            <h1 id="hackerText">CWC Hackathon</h1>
+        </div>
+        <div id="Rules" class="container">
+            <img src="Rules.png" class="rules">
+        </div>
+        <script>
+            const textElement = document.getElementById('hackerText');
+            const originalText = textElement.innerHTML;
+
+            function scrambleText() {
+                let scrambledText = '';
+
+                for (let i = 0; i < originalText.length; i++) {
+                    if (Math.random() < 0.5) {
+                        scrambledText += String.fromCharCode(Math.random() * 94 + 33);
+                    } else {
+                        scrambledText += originalText[i];
+                    }
+                }
+
+                scrambledText = scrambledText.substring(0, originalText.length);
+
+                textElement.innerHTML = scrambledText;
+
+                setTimeout(() => {
+                    textElement.innerHTML = originalText;
+                }, 2000);
+            }
+
+            setInterval(scrambleText, 50);
+        </script>
+</body>
+
+</html>
